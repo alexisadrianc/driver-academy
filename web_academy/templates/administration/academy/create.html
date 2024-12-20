@@ -1,0 +1,216 @@
+{% extends 'administration/home.html' %}
+{% load static %}
+
+{% block content %}
+
+{% block extra_css %}
+<link rel="canonical" href="https://appstack.bootlab.io/ui-tabs.html">
+{% endblock extra_css %}
+
+<form id="form-create-academy" method="post" action="{% url 'administrator:create-academy' %}">
+    {% csrf_token %}
+    <div class="container-title">
+        <h1 class="h3 mb-3">La Academía</h1>
+    </div>
+    <div class="d-grid gap-2 d-md-block">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="{% url 'administrator:academy' %}" class="btn btn-outline-secondary">Cancelar</a>
+    </div>
+    <br/>
+    <div class="container">
+        <div class="row">
+            <div class="card">
+                <div class="card-header">
+
+                </div>
+                <div class="card-body">
+                    <div class="form-group row">
+                        <p class="col-form-label col-sm-2 text-sm-left">{{form.company.label}}</p>
+                        <div class="col-sm-10">
+                            {{form.company}}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <p class="col-form-label col-sm-2 text-sm-left">
+                            {{form.address.label}}
+                        </p>
+                        <div class="col-sm-10">
+                            {{ form.address }}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <p class="col-form-label col-sm-2 text-sm-left">
+                            {{form.phone.label}}
+                        </p>
+                        <div class="col-sm-10">
+                            {{ form.phone }}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <p class="col-form-label col-sm-2 text-sm-left">
+                            {{form.email.label}}
+                        </p>
+                        <div class="col-sm-10">
+                            {{ form.email }}
+                        </div>
+                    </div>
+
+
+                    <ul class="nav nav-tabs" id="BuildingTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" id="resume-tab"
+                               data-bs-toggle="tab"
+                               href="#resume" role="tab"
+                               aria-controls="resume"
+                               aria-selected="false">Resumen</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="about-tab"
+                               data-bs-toggle="tab"
+                               href="#about" role="tab"
+                               aria-controls="about"
+                               aria-selected="false">Nosotros</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="network-tab"
+                               data-bs-toggle="tab"
+                               href="#network" role="tab"
+                               aria-controls="network"
+                               aria-selected="false">Redes sociales</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="links-tab"
+                               data-bs-toggle="tab"
+                               href="#links" role="tab"
+                               aria-controls="links"
+                               aria-selected="false">Servcios externos</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="resume"
+                             role="tabpanel"
+                             aria-labelledby="resume-tab">
+                            <br>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="card">
+                                        <!--                                        <div class="card-header">-->
+
+                                        <!--                                        </div>-->
+                                        <div class="card-body">
+                                            <div class="form-group row">
+                                                <p class="col-form-label col-sm-2 text-sm-left">
+                                                    {{form.title_resume.label}}
+                                                </p>
+                                                <div class="col-sm-10">
+                                                    {{ form.title_resume }}
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <p class="col-form-label col-sm-2 text-sm-left">
+                                                    {{form.resume.label}}
+                                                </p>
+                                                <div class="col-sm-10">
+                                                    {{ form.resume }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="about" role="tabpanel"
+                             aria-labelledby="about-tab">
+                            <br>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title mb-0">¿Quiénes somos?</h5>
+                                            <hr>
+                                            <div class="form-group row">
+                                                <p class="col-form-label col-sm-2 text-sm-left">
+                                                    {{form.name.label}}
+                                                </p>
+                                                <div class="col-sm-10">
+                                                    {{form.name}}
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <p class="col-form-label col-sm-2 text-sm-left">
+                                                    {{form.about_us.label}}
+                                                </p>
+                                                <div class="col-sm-10">
+                                                    {{ form.about_us }}
+                                                </div>
+                                            </div>
+
+                                            <h5 class="card-title mb-0">Compromiso</h5>
+                                            <hr>
+                                            <div class="form-group row">
+                                                <p class="col-form-label col-sm-2 text-sm-left">
+                                                    {{form.name2.label}}</p>
+                                                <div class="col-sm-10">
+                                                    {{form.name2}}
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <p class="col-form-label col-sm-2 text-sm-left">
+                                                    {{form.detail.label}}
+                                                </p>
+                                                <div class="col-sm-10">
+                                                    {{ form.detail }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="network" role="tabpanel"
+                             aria-labelledby="network-tab">
+                            <br>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header">
+                                            </div>
+                                            <div class="card-body">
+                                                ...
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="links" role="tabpanel"
+                             aria-labelledby="links-tab">
+                            <br>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header">
+                                            </div>
+                                            <div class="card-body">
+                                                ...
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+{% endblock content%}

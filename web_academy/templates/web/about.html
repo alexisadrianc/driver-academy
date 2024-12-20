@@ -1,0 +1,131 @@
+{% extends 'index.html' %}
+
+{% load static %}
+{% block content %}
+<main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs aos-init aos-animate" data-aos="fade-in">
+        <div class="container">
+            <h2>Sobre nosotros</h2>
+            <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit
+                quaerat debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo harum praesentium. </p>
+        </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+        <div class="container aos-init aos-animate" data-aos="fade-up">
+
+            <div class="row">
+                <div class="col-lg-6 order-1 order-lg-2 aos-init aos-animate" data-aos="fade-left" data-aos-delay="100">
+                    <img src="{{ about.image.url }}" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+                    <h3>{{ about.name }}</h3>
+                    <p class="fst-italic">
+                        {{ about.about_us | safe }}
+                    </p>
+                    <h3>{{ about.name2 }}</h3>
+                    <p class="fst-italic">
+                        {{ about.detail | safe }}
+                    </p>
+<!--                    <ul>-->
+<!--                        <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.-->
+<!--                        </li>-->
+<!--                        <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate-->
+<!--                            velit.-->
+<!--                        </li>-->
+<!--                        <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.-->
+<!--                            Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu-->
+<!--                            fugiat nulla pariatur.-->
+<!--                        </li>-->
+<!--                    </ul>-->
+
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts section-bg">
+        <div class="container">
+
+            <div class="row counters">
+
+                <div class="col-lg-3 col-6 text-center">
+                    <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1"
+                          class="purecounter">0</span>
+                    <p>Estudiantes</p>
+                </div>
+
+                <div class="col-lg-3 col-6 text-center">
+                    <span data-purecounter-start="0" data-purecounter-end="64" data-purecounter-duration="1"
+                          class="purecounter">0</span>
+                    <p>Clases</p>
+                </div>
+
+                <div class="col-lg-3 col-6 text-center">
+                    <span data-purecounter-start="0" data-purecounter-end="42" data-purecounter-duration="1"
+                          class="purecounter">0</span>
+                    <p>Eventos</p>
+                </div>
+
+                <div class="col-lg-3 col-6 text-center">
+                    <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"
+                          class="purecounter">0</span>
+                    <p>Instructores</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Counts Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials">
+        <div class="container aos-init" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Testimonios</h2>
+                <p>Que nos comentan</p>
+<!--                <p>What are they saying</p>-->
+            </div>
+
+            <div class="testimonials-slider swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events aos-init" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper" style="transform: translate3d(-1704px, 0px, 0px); transition-duration: 0ms;" id="swiper-wrapper-7d853ebd01f81289" aria-live="off">
+                    {% for rec in testimonio %}
+                        <div class="swiper-slide" data-swiper-slide-index="0"
+                             style="width: 548px; margin-right: 20px;" role="group" aria-label="2 / 9">
+                            <div class="testimonial-wrap">
+                                <div class="testimonial-item">
+                                    <img src="{{ rec.image.url }}" class="testimonial-img" alt="">
+                                    <h3>{{ rec.author }}</h3>
+                                    <h4>Freelancer</h4>
+                                    <p>
+                                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                        {{ rec.detail }}
+                                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets">
+                    <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span>
+                    <span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button"
+                          aria-label="Go to slide 2"></span>
+                    <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span>
+                    <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span>
+                    <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 5"></span>
+                </div>
+                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+            </div>
+
+        </div>
+    </section><!-- End Testimonials Section -->
+
+</main><!-- End #main -->
+
+{% endblock content %}
